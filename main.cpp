@@ -16,13 +16,12 @@ video: Chapter 2 - Part 3
  
  1) Write down the names of the 6 major primitive types available in C++  here:
  
- 
- 
- 
- 
- 
- 
- 
+ bool
+ int
+ float
+ double
+ char
+ unsigned int
  
  
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration() function on line 59.
@@ -59,10 +58,49 @@ void variableDeclarations()
 {
     //example:
     int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
-    
+    bool isFinished = false;
+    bool needsInitialization = true;
+    bool hasAClue = false;
 
-    
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    int cycleCount = 0;
+    int width = 800;
+    int noiseFloor = -100;
+
+    float frequency = 42.3f;
+    float gain = 0.66f;
+    float delay = 333.5f;
+
+    double lifespanInSeconds = 2372000000;
+    double aPrettyLargeNumber = 123456789.0;
+    double aSmallerNumberStoredAsADoubleAnyway = -85;
+
+    char c = 'c';
+    char zip = '\0';
+    char myChar = 'D';
+
+    unsigned int maxUInt16 = 0xFF;
+    unsigned int fullMonthsLeftInYear = 1;
+    unsigned int pointsOnLicence = 0;
+
+    ignoreUnused( number,
+                  isFinished,
+                  needsInitialization,
+                  hasAClue,
+                  cycleCount,
+                  width,
+                  noiseFloor,
+                  frequency,
+                  gain,
+                  delay,
+                  lifespanInSeconds,
+                  aPrettyLargeNumber,
+                  aSmallerNumberStoredAsADoubleAnyway,
+                  c,
+                  zip,
+                  myChar,
+                  maxUInt16,
+                  fullMonthsLeftInYear,
+                  pointsOnLicence); //passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -79,43 +117,83 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
-
+int drillWell( float depth, float diameter = .5f )
+{
+    ignoreUnused( depth, diameter );
+    return {};
+}
 /*
- 2)
+2)
  */
-
+bool canPayBills( float cashOnHand, float bills = 6000.f )
+{
+    ignoreUnused( cashOnHand, bills );
+    return {};
+}
 /*
  3)
  */
-
+int transferMoney( double senderAccount, double recipientAccount, float amount )
+{
+    ignoreUnused( senderAccount, recipientAccount, amount );
+    return {};
+}
 /*
  4)
  */
-
+float calculatePowerInWatts( float voltage = 110.f, float current = 0.5f )
+{
+    ignoreUnused( voltage, current );
+    return {};
+}
 /*
  5)
  */
-
+double calculateRemainingLifespan( double age, float height = 5.5f, float weight = 163.f )
+{
+    ignoreUnused( age, height, weight );
+    return {};
+}
 /*
  6)
  */
-
+char returnSemiRandomChar( bool upperCase = false )
+{
+    ignoreUnused(upperCase);
+    return {};
+}
 /*
  7)
  */
-
+unsigned int returnRandomIntegerBetween( int lowerLimit = 0, int upperLimit = 100 )
+{
+    ignoreUnused( lowerLimit, upperLimit );
+    return {};
+}
 /*
  8)
  */
-
+bool makeDinosaurRoar( int durationInSeconds = 3, float volume = .7f )
+{
+    ignoreUnused( durationInSeconds, volume );
+    return {};
+}
 /*
  9)
  */
-
+bool moveObject( double objectID, float x = 0.f, float y = 0.f, float z = 0.f, bool relative = true )
+{
+    ignoreUnused( objectID, x, y, z, relative );
+    return {};
+}
 /*
  10)
  */
-
+bool approveBusinessLoan( float ownersCreditScore, int businessAge, float loanAmount )
+{
+    ignoreUnused( ownersCreditScore, businessAge, loanAmount );
+    return {};
+}
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -133,30 +211,41 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 int main()
 {
     //example of calling that function, storing the value, and passing it to ignoreUnused at the end of main()
-    auto carRented = rentACar(6, 2); 
+    auto carRented = rentACar( 6, 2 ); 
     
     //1)
-    
+    auto wellDrilledTo = drillWell( 275.f, 1.f );
     //2)
-    
+    auto iHaveEnoughMoney = canPayBills( 100.f, 575.f );
     //3)
-    
+    auto moneyTransferResult = transferMoney( 12345678998765, 98765432112345 , 9999.99f );
     //4)
-    
+    auto wattsUsed = calculatePowerInWatts( 9.f );
     //5)
-    
+    auto howLongShouldThisGuyLive = calculateRemainingLifespan( 20.9, 6.333f, 200.f );
     //6)
-    
+    auto randomCapitalLetter = returnSemiRandomChar( true );
     //7)
-    
+    auto randomInteger = returnRandomIntegerBetween( 0, 0xFF );
     //8)
-    
+    auto dinosaurRoarResult = makeDinosaurRoar( 5, 1.f );
     //9)
-    
+    auto moveObjectResult = moveObject( 1234567890, 1, 1, 50.f, true );
     //10)
+    auto canApproveLoan = approveBusinessLoan( 450.f, 1, 50000.f );
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused( carRented,
+                  wellDrilledTo,
+                  iHaveEnoughMoney,
+                  moneyTransferResult,
+                  wattsUsed,
+                  howLongShouldThisGuyLive,
+                  randomCapitalLetter,
+                  randomInteger,
+                  dinosaurRoarResult,
+                  moveObjectResult,
+                  canApproveLoan );
+
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
