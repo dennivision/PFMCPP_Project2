@@ -117,13 +117,13 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
- int drillWell( float depth, float diameter = .5f )
- {
+int drillWell( float depth, float diameter = .5f )
+{
     ignoreUnused( depth, diameter );
     return {};
- }
+}
 /*
- 2)
+2)
  */
 bool canPayBills( float cashOnHand, float bills = 6000.f )
 {
@@ -133,11 +133,11 @@ bool canPayBills( float cashOnHand, float bills = 6000.f )
 /*
  3)
  */
- int transferMoney( double senderAccount, double recipientAccount, float amount )
- {
+int transferMoney( double senderAccount, double recipientAccount, float amount )
+{
     ignoreUnused( senderAccount, recipientAccount, amount );
     return {};
- }
+}
 /*
  4)
  */
